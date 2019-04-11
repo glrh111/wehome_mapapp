@@ -1,0 +1,43 @@
+<html>
+<head>
+  <title>WeHome Map</title>
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+  <script src="{{ url_for('static', filename = 'js/angular.min.js') }}"></script>
+  <script src="https://webapi.amap.com/maps?v=1.4.14&key=您申请的key值&plugin=AMap.Autocomplete"></script>
+  <!--<script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>-->
+  <script src="{{ url_for('static', filename = 'js/main.js') }}"></script>
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/main.css') }}">
+  <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css"/>
+
+</head>
+
+<body >
+<div ng-app="wehome-map" >
+  <h1>WeHome Map</h1>
+  <label>click to display AQI info</label>
+
+  <!-- app here -->
+
+  <div id="info" ng-controller="wehome-con">
+
+    <label>Location</label>
+    <p id="location">[[location]]</p>
+
+    <label>AQI</label>
+    <p id="AQI">[[aqi]]</p>
+
+  </div>
+
+</div>
+
+<div id="container" class="map"></div>
+  <div class="input-card">
+    <h4>左击获取经纬度：</h4>
+    <div class="input-item">
+      <input type="text" readonly="true" id="lnglat">
+    </div>
+  </div>
+</body>
+
+</html>
